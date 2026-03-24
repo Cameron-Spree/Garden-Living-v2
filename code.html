@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Garden Living - Community Groups</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#a9d293",
+                        "surface-container": "#f0ede9",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#3f4b2c",
+                        "secondary": "#94492d",
+                        "surface": "#fcf9f4",
+                        "on-secondary-container": "#773319",
+                        "inverse-on-surface": "#f3f0eb",
+                        "outline": "#73796d",
+                        "on-tertiary-fixed": "#141f05",
+                        "surface-variant": "#e5e2dd",
+                        "tertiary-fixed": "#dae8be",
+                        "on-primary": "#ffffff",
+                        "primary": "#173809",
+                        "secondary-fixed": "#ffdbcf",
+                        "primary-container": "#2d4f1e",
+                        "secondary-fixed-dim": "#ffb59b",
+                        "surface-container-high": "#ebe8e3",
+                        "on-primary-fixed": "#062100",
+                        "on-surface-variant": "#43493e",
+                        "on-primary-container": "#98c083",
+                        "on-primary-fixed-variant": "#2d4f1e",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-tertiary-container": "#adbb93",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3ee",
+                        "on-surface": "#1c1c19",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fcf9f4",
+                        "secondary-container": "#fd9e7b",
+                        "surface-tint": "#446733",
+                        "inverse-surface": "#31302d",
+                        "on-background": "#1c1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f4b2c",
+                        "inverse-primary": "#a9d293",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#c5efad",
+                        "outline-variant": "#c3c8bb",
+                        "surface-bright": "#fcf9f4",
+                        "tertiary": "#293417",
+                        "on-secondary-fixed-variant": "#763318",
+                        "surface-dim": "#dcdad5",
+                        "on-secondary-fixed": "#380d00",
+                        "tertiary-fixed-dim": "#becca3"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .glass-nav { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-sm shadow-emerald-900/5 tonal-transition h-20">
+<div class="flex justify-between items-center px-8 h-full max-w-full mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 italic font-serif tracking-tight leading-relaxed">Garden Living</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors font-sans text-sm font-medium tracking-wide" href="#">Feed</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors font-sans text-sm font-medium tracking-wide" href="#">Summits</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors font-sans text-sm font-medium tracking-wide" href="#">Blog</a>
+<a class="text-emerald-800 dark:text-emerald-200 border-b-2 border-emerald-800 dark:border-emerald-200 pb-1 font-sans text-sm font-medium tracking-wide" href="#">Groups</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search communities..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-stone-600 hover:text-emerald-700 transition-all">notifications</button>
+<button class="material-symbols-outlined p-2 text-stone-600 hover:text-emerald-700 transition-all">person</button>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-5rem)] w-72 bg-stone-50 dark:bg-stone-950 p-6 gap-8 fixed left-0 overflow-y-auto">
+<div class="flex flex-col gap-2">
+<span class="text-xl font-serif italic text-emerald-900 dark:text-emerald-50">Garden Living</span>
+<span class="text-xs text-on-surface-variant font-medium tracking-widest uppercase">The Digital Greenhouse</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span>Feed</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">video_library</span>
+<span>Summits</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Blog</span>
+</a>
+<a class="flex items-center gap-3 bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-xl px-4 py-3 active:scale-98 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span>Groups</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-4 px-6 rounded-full shadow-lg shadow-emerald-900/20 hover:opacity-90 transition-opacity active:scale-95">
+                    Start Planting
+                </button>
+<div class="pt-4 border-t border-outline-variant/15 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-2 text-sm hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-2 text-sm hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 p-8 lg:p-12 max-w-7xl mx-auto w-full">
+<!-- Hero Header -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<span class="text-secondary font-bold tracking-widest uppercase text-xs mb-3 block">Community Hub</span>
+<h1 class="font-headline text-display-lg text-primary leading-tight mb-4 tracking-tight">The Greenhouse Collective</h1>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">Join a specialized circle of enthusiasts. Share your growth, troubleshoot pests, and cultivate connections with gardeners around the world.</p>
+</div>
+<button class="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed-variant px-8 py-4 rounded-full font-bold hover:brightness-95 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                        Create a New Group
+                    </button>
+</div>
+</section>
+<!-- Search & Filters (Bento Style Sub-Header) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+<div class="md:col-span-3 bg-surface-container-low p-6 rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xl font-headline w-full placeholder:text-outline-variant" placeholder="Search by interest, plant type, or region..." type="text"/>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-6 rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-bold uppercase tracking-widest">Active Groups</span>
+<span class="text-2xl font-serif font-bold">142</span>
+</div>
+<span class="material-symbols-outlined text-4xl opacity-40">potted_plant</span>
+</div>
+</section>
+<!-- Group Grid (Asymmetric Editorial Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Group Card 1: Succulent Lovers -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Succulent Lovers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of diverse succulent collection in terracotta pots with soft natural light coming from a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCauMQDHfWf-xt2rWWe8uCZNFvwwKGmqs-Oy4BJUOACPK0RnV-TqjGcCe9NY7JU6w2ekWM3XUPUhAK5_aKcX2z6k-WXb2PtGtTXlQFj3UnQ9i6S-gElA7DsMCKhsPRQAOebBbPUqVgLtUIVsxFNJFmVb8gZTX5Dc-sCGd6l1r_VHzsF3l3pi3g-4ptws3tpsjhkAdtcXOcY39CJzjDgZRhhz1wqj8y32aVEE6TyGDJNs9JVhyh52XU1ReXtuY1U_Ji5vt2JnZnQ_sw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">2.4k Members</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-headline-md text-primary mb-3">Succulent Lovers</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">Master the art of neglect. Sharing propagation tips, soil mixes, and identification for desert flora enthusiasts.</p>
+<button class="w-full bg-surface-container text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-white transition-colors">Join Community</button>
+</div>
+</article>
+<!-- Group Card 2: Urban Jungle (Asymmetric Offset) -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm lg:-mt-12 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Urban Jungle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Lush apartment balcony filled with monsteras, ferns, and hanging pothos plants in an urban city setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7DAXm21vwb_N2gln0pHkOHBfZOEayclVK1LJ0glZrA7JU-BGG4V-b2mGrFLHAyJqolUixA7eLrsTzRkBvpDy1WJpZozrBk82DAWZer3OwZz2v66F8iYs-jCDm9sBeUiT02geuS7VD-xXOWh02dB8l7IeGlIkS0I2zI6LrHOO8oEt3XgkSKmbsA2zADEcSD-ruJTeogoec7FDsjuLmWDrvmTRbPGMoilv8HO0_n3kZg0GIWPnWApKy1fxP6dSWr9UZFr1oRuYlWAw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">5.8k Members</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Trending</span>
+</div>
+<h3 class="font-headline text-headline-md text-primary mb-3">Urban Jungle</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">Turning city apartments into oxygen-rich sanctuaries. Focus on low-light plants and space optimization.</p>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-3 rounded-full shadow-lg shadow-emerald-900/10 hover:brightness-110 transition-all">Join Community</button>
+</div>
+</article>
+<!-- Group Card 3: Vegetable Patch -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Vegetable Patch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Aerial view of neatly organized raised garden beds overflowing with kale, tomatoes, and herbs at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB4lJY3tFNVDPjBGJrE17H5pzw1U7y_th6qcx6WgBL6pZX9FwOy9pN3296gDYkDcdBKuiYmN9KWL0hNIVoU4g_WsGVWKZUN66kZRxv7eeEefcAHZOkNYRnwWIZUvaIbMbAuY2MNkMplV8v7AclPZ0_ws-Qkug9sXoJmAsO4hG2xAIaZpSfI2Shvh3jSf2h7InxmaYF67th09PZ1pST5c5ZshBvQnbSGu1eTdMEMTh90kYoHRjB8v6qMYJXT1tLQ6C2d4xJ9-CsGbE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">12k Members</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-headline-md text-primary mb-3">Vegetable Patch</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">The farm-to-table journey starts here. Discuss seasonal rotations, organic pest control, and bumper harvests.</p>
+<button class="w-full bg-surface-container text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-white transition-colors">Join Community</button>
+</div>
+</article>
+<!-- Group Card 4: Heirloom Seeds -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Heirloom Seeds" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Hand holding a variety of colorful heirloom tomato seeds against a rustic wooden background with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IjOo5Vv3IG7szHTo-SjFEWF5Go_jxS-_X-iSKJSTXL6ozLOBx1-xqe2cSzW_KZOZeGb83UekmAswAENgnF3igJXYOEuGZHaB0mUW3U3IyFaE1sZR9rjfh4UZdu4BwLplCLAV5Cg7jQsrcHESUxgL7hFR_hXqYPclRjJJpK-J1ncIv00jkUMulZZOZ1JJuGIxWfFCnUJJVtGq2v3e148Kw88dFx-LAFoMpimsV3-pDvFn4pgM25E1TtEkRgwWZDSehB54roE04co"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">840 Members</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-headline-md text-primary mb-3">Heirloom Seeds</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">Preserving biodiversity one seed at a time. Trading rare varieties and documenting historical cultivars.</p>
+<button class="w-full bg-surface-container text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-white transition-colors">Join Community</button>
+</div>
+</article>
+<!-- Group Card 5: Orchid Whisperers (Asymmetric Offset) -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm lg:-mt-12 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Orchid Whisperers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Elegant purple and white orchid blossom in sharp focus with a soft, dark green botanical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpqEhW2sERLuKUIvz0S2AEHTFCaStTNIHNUsJU6tq7nGhB1gmMjFZmVJ3KEkIfmiL9fEi3cZpyOI6smXKXqDmqQfI9jXCOTyCE27fm1_yNUtj2xHWKZKjaEXNfzpNmLi70O4n221kXoOA4dAeb7F9aPmdpWC0wVoBKh_tx6_aXlPu-MxWo4dSySdhQU4IfaOfKLVIreMzhV-HYtZHg1pApAkjICAZVusGly_lryROhwZAzzAncw3dLCQSR6gbrd_22u9aehVGyakQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">3.1k Members</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-headline-md text-primary mb-3">Orchid Whisperers</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">For those who dare to grow the divas of the plant world. Reblooming advice and humidity hacks.</p>
+<button class="w-full bg-surface-container text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-white transition-colors">Join Community</button>
+</div>
+</article>
+<!-- Group Card 6: Permaculture Lab -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Permaculture Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Complex ecosystem of a permaculture food forest with layered planting of fruit trees, bushes, and ground covers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-qXi8y9eBe8ynoSOO5KLxVEv-pZA03BpYkKkIUf0ghP5017Gdoq0DuWvhxp7bwbf02RWPKxIkiTnyBpOW63fdowSbqiciSUiTZEunksAD4f5ZSvbbi57CrMDFp9P0h73rAo34aqh3dRb2zQ7pZabOvF1try7yEthWR5WLADwvzTbbeIjZBhuiVEgx2jJ_4BjKEUjDAOq9expAsyEyGJ-LXTIl2J0HVtvt1jXo6hu0HIQB-bblEryQ_unS8XWrF07lR_XUilI019g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-bold">1.2k Members</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-headline-md text-primary mb-3">Permaculture Lab</h3>
+<p class="text-body-lg text-on-surface-variant mb-6 line-clamp-2">Designing regenerative ecosystems that work with nature. No-dig methods, water catchment, and forest gardening.</p>
+<button class="w-full bg-surface-container text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-white transition-colors">Join Community</button>
+</div>
+</article>
+</div>
+<!-- Suggestion Footer Banner -->
+<section class="mt-20 bg-primary-container p-12 rounded-[2rem] relative overflow-hidden text-on-primary-container">
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[15rem]">potted_plant</span>
+</div>
+<div class="relative z-10 max-w-xl">
+<h2 class="font-headline text-headline-md mb-4">Can't find your tribe?</h2>
+<p class="text-body-lg mb-8 opacity-90">Start a unique circle for your specific niche. Whether it's "Bonsai Beginners" or "Hydroponic Herbs," there are others waiting to connect.</p>
+<button class="bg-primary-fixed text-on-primary-fixed px-10 py-4 rounded-full font-bold flex items-center gap-3 hover:shadow-xl transition-all">
+                        Plant a New Group Seed
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pb-8 pt-4 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-2xl shadow-[0_-10px_40px_rgba(28,28,25,0.08)] rounded-t-[2rem] z-50">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 hover:text-emerald-600" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-sans font-semibold uppercase tracking-widest mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 hover:text-emerald-600" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="text-[10px] font-sans font-semibold uppercase tracking-widest mt-1">Summits</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 hover:text-emerald-600" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="text-[10px] font-sans font-semibold uppercase tracking-widest mt-1">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-emerald-800 dark:bg-emerald-200 text-white dark:text-emerald-950 rounded-full w-14 h-14 -mt-10 shadow-lg shadow-emerald-900/20 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+<span class="sr-only">Groups</span>
+</a>
+</nav>
+</body></html>
