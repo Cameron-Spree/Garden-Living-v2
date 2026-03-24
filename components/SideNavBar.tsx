@@ -1,6 +1,17 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function SideNavBar() {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Feed", path: "/feed", icon: "eco" },
+    { name: "Summits", path: "/summits", icon: "video_library" },
+    { name: "Blog", path: "/blog", icon: "menu_book" },
+    { name: "Groups", path: "/", icon: "groups" },
+  ];
+
   return (
     <aside className="hidden md:flex flex-col h-[calc(100vh-5rem)] w-72 bg-stone-50 dark:bg-stone-950 p-6 gap-8 fixed left-0 overflow-y-auto">
       <div className="flex flex-col gap-2">
@@ -8,22 +19,19 @@ export function SideNavBar() {
         <span className="text-xs text-on-surface-variant font-medium tracking-widest uppercase">The Digital Greenhouse</span>
       </div>
       <nav className="flex flex-col gap-2">
-        <Link className="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="/">
-          <span className="material-symbols-outlined">eco</span>
-          <span>Feed</span>
-        </Link>
-        <Link className="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="/">
-          <span className="material-symbols-outlined">video_library</span>
-          <span>Summits</span>
-        </Link>
-        <Link className="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-3 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="/">
-          <span className="material-symbols-outlined">menu_book</span>
-          <span>Blog</span>
-        </Link>
-        <Link className="flex items-center gap-3 bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-xl px-4 py-3 active:scale-98 duration-150" href="/">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>groups</span>
-          <span>Groups</span>
-        </Link>
+        {navLinks.map((link) => {
+          const isActive = pathname === link.path || (link.path !== "/" && pathname.startsWith(link.path));
+          return (
+            <Link 
+              key={link.name} 
+              href={link.path}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive ? "bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100" : "text-stone-600 dark:text-stone-400 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 hover:translate-x-1"}`}
+            >
+              <span className="material-symbols-outlined" style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}>{link.icon}</span>
+              <span>{link.name}</span>
+            </Link>
+          );
+        })}
       </nav>
       <div className="mt-auto flex flex-col gap-4">
         <Link href="/login" className="text-center bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-4 px-6 rounded-full shadow-lg shadow-emerald-900/20 hover:opacity-90 transition-opacity active:scale-95 block w-full">
