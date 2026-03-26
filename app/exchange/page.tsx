@@ -11,7 +11,10 @@ export default function Exchange() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("/api/exchange").then(r => r.json()).then(setItems).catch(console.error);
+    fetch("/api/exchange")
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data)) setItems(data); })
+      .catch(console.error);
   }, []);
 
   async function submitListing(e: React.FormEvent) {

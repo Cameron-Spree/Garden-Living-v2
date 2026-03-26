@@ -12,18 +12,12 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.error || "Login failed");
-    } else {
-      router.push("/");
-      router.refresh();
-    }
+    // Fake login: just set a cookie and redirect
+    const fakeName = email ? email.split("@")[0] : "Gardener";
+    document.cookie = `sessionUser=${encodeURIComponent(JSON.stringify({ name: fakeName, email: email || "guest@garden.live" }))};path=/;max-age=${60*60*24*7}`;
+    document.cookie = `auth_token=fake_token_for_testing;path=/;max-age=${60*60*24*7}`;
+    router.push("/");
+    router.refresh();
   };
 
   return (

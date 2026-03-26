@@ -9,7 +9,10 @@ export default function Clinic() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("/api/clinic").then(r => r.json()).then(setPosts).catch(console.error);
+    fetch("/api/clinic")
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data)) setPosts(data); })
+      .catch(console.error);
   }, []);
 
   async function submitPost(e: React.FormEvent) {
