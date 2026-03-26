@@ -19,6 +19,8 @@ export default function Summits() {
        router.push("/login");
      }
   }
+
+  return (
     <div className="w-full">
       {/* Search & Header */}
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
