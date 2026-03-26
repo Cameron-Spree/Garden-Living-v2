@@ -10,6 +10,9 @@ export function SideNavBar() {
     { name: "Summits", path: "/summits", icon: "video_library" },
     { name: "Blog", path: "/blog", icon: "menu_book" },
     { name: "Groups", path: "/", icon: "groups" },
+    { name: "Exchange", path: "/exchange", icon: "swap_calls" },
+    { name: "Clinic", path: "/clinic", icon: "health_and_safety" },
+    { name: "Profile", path: "/profile", icon: "person" },
   ];
 
   return (

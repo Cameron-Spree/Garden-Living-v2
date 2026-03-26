@@ -1,5 +1,24 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Summits() {
-  return (
+  const [rsvpStatus, setRsvpStatus] = useState<"none" | "joined">("none");
+  const router = useRouter();
+
+  async function toggleRsvp() {
+     const action = rsvpStatus === "joined" ? "leave" : "join";
+     const res = await fetch("/api/summits/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ summitId: "hero-summit-1", action })
+     });
+     if (res.ok) {
+       setRsvpStatus(action === "join" ? "joined" : "none");
+     } else if (res.status === 401) {
+       router.push("/login");
+     }
+  }
     <div className="w-full">
       {/* Search & Header */}
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -26,8 +45,8 @@ export default function Summits() {
           <h2 className="text-4xl md:text-6xl font-headline font-bold leading-[1.1] mb-6">Vertical Orchards: Urban Spaces Reimagined</h2>
           <p className="text-lg opacity-90 mb-10 leading-relaxed font-light">Join Dr. Elena Vance as she demonstrates how to transform small balconies into high-yield fruit gardens using modular hydroponic systems.</p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-gradient-to-r from-primary-fixed to-primary-fixed-dim text-primary px-8 py-4 rounded-full font-bold shadow-2xl shadow-black/20 hover:scale-105 transition-transform">
-              Join Live Now
+            <button onClick={toggleRsvp} className="bg-gradient-to-r from-primary-fixed to-primary-fixed-dim text-primary px-8 py-4 rounded-full font-bold shadow-[0_10px_30px_rgba(28,28,25,0.06)] hover:-translate-y-1 transition-transform cursor-pointer">
+              {rsvpStatus === "joined" ? "✓ Attending (RSVP'd)" : "Join Live Now"}
             </button>
             <button className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all backdrop-blur-md">
               Add to Calendar
